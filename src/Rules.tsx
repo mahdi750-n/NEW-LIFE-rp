@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { Shield, MessageCircle, ChevronUp, Menu, X, Zap } from 'lucide-react';
+import { Shield, MessageCircle, ChevronUp, Menu, X } from 'lucide-react';
 
 const DISCORD_URL = 'https://discord.gg/GPzfa4q22';
 const LOGO = '/Screenshot_2026-06-02_111830.png';
@@ -58,7 +58,7 @@ function Navbar() {
         {/* Mobile menu toggle */}
         <button
           className="md:hidden text-white p-1"
-          onClick={() => setMenuOpen(v => !v)}
+          onClick={() => setMenuOpen((v: boolean) => !v)}
         >
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
