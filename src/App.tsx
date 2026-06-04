@@ -469,29 +469,22 @@ function Stats() {
 // ─── Gallery ──────────────────────────────────────────────────────────────────
 const GALLERY_IMAGES = [
   {
-    url: 'https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=800',
+    <img src="Screenshot 2026-06-02 200703"></img>,
     label: 'Downtown',
   },
   {
-    url: 'https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=800',
+    <img src="Screenshot 2026-06-02 200629"></img>,
     label: 'Night Race',
   },
   {
-    url: 'https://images.pexels.com/photos/1004409/pexels-photo-1004409.jpeg?auto=compress&cs=tinysrgb&w=800',
+    <img src="Screenshot 2026-06-02 200559"></img>,
     label: 'Police Chase',
   },
   {
-    url: 'https://images.pexels.com/photos/236937/pexels-photo-236937.jpeg?auto=compress&cs=tinysrgb&w=800',
+    <img src="Screenshot 2026-06-02 200733"></img>,
     label: 'City Life',
   },
-  {
-    url: 'https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=800',
-    label: 'Street Scene',
-  },
-  {
-    url: 'https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=800',
-    label: 'Roleplay Moment',
-  },
+  
 ];
 
 function Gallery() {
