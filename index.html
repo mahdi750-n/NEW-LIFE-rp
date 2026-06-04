@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <style>
-    /* ───────────────────────────────���───────────────────────────────
+    /* ───────────────────���───────────────────────────────────────────
        ROOT & RESET
     ─────────────────────────────────────────────────────────────── */
     :root {
@@ -46,7 +46,7 @@
 
     /* ───────────────────────────────────────────────────────────────
        ANIMATIONS
-    ─────────────────────────────────────────────────────────────── */
+    ─────────────────────────────────────────────���───────────────── */
     @keyframes countUp {
       from {
         opacity: 0;
@@ -99,7 +99,7 @@
 
     /* ──────────────────────────────────────────────────────────────
        NAVBAR
-    ─────────────────────────────────────────────────────────────── */
+    ──────────────────────────────────────────────��──────────────── */
     nav {
       position: fixed;
       top: 0;
@@ -422,7 +422,7 @@
 
     /* ──────────────────────────────────────────────────────────────
        SECTION STYLES
-    ─────────────────────────────────────────────────────────────── */
+    ────────────────────────────────���────────────────────────────── */
     section {
       padding: 6rem 1rem;
     }
@@ -474,7 +474,7 @@
 
     /* ──────────────────────────────────────────────────────────────
        FEATURES SECTION
-    ────────────��────────────────────────────────────────────────── */
+    ─────────────────────────────────────────────────────────────── */
     #features {
       position: relative;
     }
@@ -837,7 +837,7 @@
 
     /* ──────────────────────────────────────────────────────────────
        RULES PAGE
-    ──────────────────────────────────────────────────────────────── */
+    ─────────────────────────────────────────────────────────────── */
     #rules-page {
       padding-top: 6rem;
       min-height: 100vh;
@@ -1003,582 +1003,468 @@
       max-width: 80rem;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
       gap: 3rem;
+      margin-bottom: 2rem;
     }
 
-    .footer-section h3 {
+    .footer-column h3 {
       font-size: 1rem;
       font-weight: 700;
       margin-bottom: 1.25rem;
       color: #fff;
     }
 
-    .footer-section ul {
+    .footer-column ul {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
     }
 
-    .footer-section a {
+    .footer-column a {
       color: #9ca3af;
       text-decoration: none;
       font-size: 0.875rem;
       transition: color 0.2s;
     }
 
-    .footer-section a:hover {
+    .footer-column a:hover {
       color: var(--cyan);
     }
 
     .footer-bottom {
-      max-width: 80rem;
-      margin: 3rem auto 0;
-      padding-top: 2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 2rem;
       text-align: center;
       color: #6b7280;
       font-size: 0.875rem;
     }
 
-    .hidden {
-      display: none !important;
-    }
+    /* ──────────────────────────────────────────────────────────────
+       RESPONSIVE
+    ─────────────────────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      section {
+        padding: 4rem 1rem;
+      }
 
-    .show {
-      display: block !important;
+      .hero {
+        padding: 5rem 1rem 1rem;
+      }
+
+      .section-header {
+        margin-bottom: 2rem;
+      }
     }
   </style>
 </head>
+
 <body>
   <!-- NAVBAR -->
   <nav id="navbar">
-    <a href="#" onclick="showHomePage(); return false;" class="navbar-brand">
-      <img src="/Screenshot_2026-06-02_111830.png" alt="NEW LIFE RP" onerror="this.style.background='linear-gradient(135deg, #22d3ee, #3b82f6); width: 2rem; height: 2rem;'">
+    <a href="#home" class="navbar-brand">
       <span>NEW LIFE <span class="rp">RP</span></span>
     </a>
-    
     <div class="nav-links" id="navLinks">
-      <a href="#features" onclick="closeMenu()">المميزات</a>
-      <a href="#factions" onclick="closeMenu()">الفصائل</a>
-      <a href="#stats" onclick="closeMenu()">إحصائيات</a>
-      <a href="#gallery" onclick="closeMenu()">صور</a>
-      <a href="#server" onclick="closeMenu()">حالة السيرفر</a>
-      <a href="#rules" onclick="showRulesPage(); return false;">القوانين</a>
+      <a href="#features">المميزات</a>
+      <a href="#factions">الفصائل</a>
+      <a href="#stats">الإحصائيات</a>
+      <a href="#gallery">المعرض</a>
+      <a href="#server">السيرفر</a>
+      <a href="rules.html">القوانين</a>
     </div>
-
     <div class="nav-btn-group">
-      <a href="https://discord.gg/GPzfa4q22" target="_blank" class="nav-discord">
-        <span>💬</span>
-        <span>Discord</span>
+      <a href="https://discord.gg/newlife" target="_blank" class="nav-discord">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.211.375-.445.864-.607 1.25a18.27 18.27 0 00-5.487 0c-.162-.386-.395-.875-.608-1.25a.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 00-.042-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.294.075.075 0 01.078-.01c3.928 1.793 8.18 1.793 12.062 0a.075.075 0 01.079.009c.12.098.246.198.373.294a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.076.076 0 00-.041.107c.36.699.77 1.364 1.225 1.994a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-4.718-.838-8.812-3.549-12.54a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.964-2.157 2.157-2.157 1.193 0 2.157.964 2.157 2.157 0 1.191-.964 2.156-2.157 2.156zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.964-2.157 2.157-2.157 1.193 0 2.157.964 2.157 2.157 0 1.191-.964 2.156-2.157 2.156z"/>
+        </svg>
+        Discord
       </a>
-      <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()">☰</button>
+      <button class="menu-toggle" id="menuToggle">☰</button>
     </div>
   </nav>
 
-  <!-- HOME PAGE -->
-  <div id="homePage">
-    <!-- HERO SECTION -->
-    <section class="hero">
-      <div class="hero-grid"></div>
-      
-      <div class="hero-content">
-        <div class="hero-badge">
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="status-dot"></span>
+        <span class="online-text">السيرفر يعمل</span>
+        <span class="status-text">الآن</span>
+      </div>
+      <h1>
+        NEW LIFE <span class="gradient">RP</span>
+        <br>
+        <span class="small">أفضل سيرفر رولبلاي عربي</span>
+      </h1>
+      <p class="hero-subtitle">انضم لتجربة رولبلاي حقيقية مع أفضل فريق دعم وأنظمة مخصصة</p>
+      <p class="hero-server">Server IP: play.newlife-rp.com</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="window.location.href='https://launcher.newlife-rp.com'">
+          تحميل اللعبة
+        </button>
+        <a href="https://discord.gg/newlife" target="_blank" class="btn btn-discord">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.211.375-.445.864-.607 1.25a18.27 18.27 0 00-5.487 0c-.162-.386-.395-.875-.608-1.25a.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 00-.042-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.294.075.075 0 01.078-.01c3.928 1.793 8.18 1.793 12.062 0a.075.075 0 01.079.009c.12.098.246.198.373.294a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.076.076 0 00-.041.107c.36.699.77 1.364 1.225 1.994a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-4.718-.838-8.812-3.549-12.54a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.964-2.157 2.157-2.157 1.193 0 2.157.964 2.157 2.157 0 1.191-.964 2.156-2.157 2.156zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.964-2.157 2.157-2.157 1.193 0 2.157.964 2.157 2.157 0 1.191-.964 2.156-2.157 2.156z"/>
+          </svg>
+          انضم لديسكورد
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>اسحب للأسفل</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section id="features" class="section-bg">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">لماذا NEW LIFE RP</span>
+        <h2 class="section-title">
+          المميزات <span class="gradient">الرئيسية</span>
+        </h2>
+        <div class="gradient-line"></div>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎮</div>
+          <h3>أنظمة متقدمة</h3>
+          <p>أنظمة مخصصة تم تطويرها من الصفر لأفضل تجربة رولبلاي</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon blue">👥</div>
+          <h3>مجتمع قوي</h3>
+          <p>مجتمع عربي كبير يتمتع بروح الفريق والاحترام</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚙️</div>
+          <h3>فريق دعم متفاني</h3>
+          <p>فريق دعم ٢٤/٧ جاهز لمساعدتك في أي مشكلة</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon blue">📊</div>
+          <h3>اقتصاد محقق</h3>
+          <p>نظام اقتصادي واقعي يوفر تجربة لعب متوازنة</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>أهداف ومساراتمهنية</h3>
+          <p>العديد من المهن والأهداف التي تجعل اللعب ممتعاً</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon blue">🛡️</div>
+          <h3>أمان وحماية</h3>
+          <p>نظام حماية متقدم ضد الاحتيال والسلوك السيء</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACTIONS SECTION -->
+  <section id="factions">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">اختر فصيلتك</span>
+        <h2 class="section-title">
+          الفصائل <span class="gradient">المتاحة</span>
+        </h2>
+        <div class="gradient-line"></div>
+      </div>
+
+      <div class="factions-grid">
+        <div class="faction-card">
+          <div class="faction-icon">👮</div>
+          <div class="faction-header">
+            <h3>الشرطة</h3>
+            <span class="eng">Police</span>
+          </div>
+          <p>حافظ على النظام والأمان في المدينة كضابط شرطة محترف</p>
+        </div>
+
+        <div class="faction-card">
+          <div class="faction-icon">⚕️</div>
+          <div class="faction-header">
+            <h3>الطب</h3>
+            <span class="eng">Medical</span>
+          </div>
+          <p>أنقذ الأرواح وساعد المواطنين كطبيب أو مسعف</p>
+        </div>
+
+        <div class="faction-card">
+          <div class="faction-icon">🚒</div>
+          <div class="faction-header">
+            <h3>الإطفاء</h3>
+            <span class="eng">Fire</span>
+          </div>
+          <p>أطفئ الحرائق وأنقذ الناس من الخطر كرجل إطفاء</p>
+        </div>
+
+        <div class="faction-card">
+          <div class="faction-icon">⚖️</div>
+          <div class="faction-header">
+            <h3>المحاماة</h3>
+            <span class="eng">Legal</span>
+          </div>
+          <p>دافع عن حقوق الناس كمحام أو قاضي</p>
+        </div>
+
+        <div class="faction-card">
+          <div class="faction-icon">🏢</div>
+          <div class="faction-header">
+            <h3>الأعمال</h3>
+            <span class="eng">Business</span>
+          </div>
+          <p>ابدأ مشروعك الخاص وكون إمبراطوريتك التجارية</p>
+        </div>
+
+        <div class="faction-card">
+          <div class="faction-icon">🎭</div>
+          <div class="faction-header">
+            <h3>الترفيه</h3>
+            <span class="eng">Entertainment</span>
+          </div>
+          <p>كن نجماً أو صاحب ملهى في مشهد الترفيه</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS SECTION -->
+  <section id="stats" class="section-bg">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">أرقام تتحدث</span>
+        <h2 class="section-title">
+          إحصائيات <span class="gradient">السيرفر</span>
+        </h2>
+        <div class="gradient-line"></div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">👥</div>
+          <div class="stat-value">2500+</div>
+          <div class="stat-label">لاعب نشط</div>
+          <div class="stat-sub">في الشهر الأخير</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">🎮</div>
+          <div class="stat-value">50+</div>
+          <div class="stat-label">خادم</div>
+          <div class="stat-sub">بسعات مختلفة</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-value">4.8/5</div>
+          <div class="stat-label">تقييم</div>
+          <div class="stat-sub">من التقييمات</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">���</div>
+          <div class="stat-value">99.9%</div>
+          <div class="stat-label">التوفرية</div>
+          <div class="stat-sub">وقت التشغيل</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-value">30+</div>
+          <div class="stat-label">نظام</div>
+          <div class="stat-sub">نظام مخصص</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-value">100%</div>
+          <div class="stat-label">رولبلاي</div>
+          <div class="stat-sub">تجربة حقيقية</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section id="gallery" class="section-bg">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">لحظات من السيرفر</span>
+        <h2 class="section-title">
+          معرض <span class="gradient">الصور</span>
+        </h2>
+        <div class="gradient-line"></div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="gallery-item-bg" style="background-image: url('https://ibb.co/image1');"></div>
+          <div class="gallery-overlay">
+            <span class="gallery-label">Downtown</span>
+          </div>
+          <div class="gallery-border"></div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-item-bg" style="background-image: url('https://ibb.co/image2');"></div>
+          <div class="gallery-overlay">
+            <span class="gallery-label">Night Race</span>
+          </div>
+          <div class="gallery-border"></div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-item-bg" style="background-image: url('https://ibb.co/image3');"></div>
+          <div class="gallery-overlay">
+            <span class="gallery-label">Police Chase</span>
+          </div>
+          <div class="gallery-border"></div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-item-bg" style="background-image: url('https://ibb.co/image4');"></div>
+          <div class="gallery-overlay">
+            <span class="gallery-label">City Life</span>
+          </div>
+          <div class="gallery-border"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVER STATUS SECTION -->
+  <section class="section-bg" id="server">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">معلومات الاتصال</span>
+        <h2 class="section-title">
+          حالة <span class="gradient">السيرفر</span>
+        </h2>
+        <div class="gradient-line"></div>
+      </div>
+
+      <div class="server-card">
+        <div class="server-status-badge">
           <span class="status-dot"></span>
-          <span class="online-text">أون لاين</span>
-          <span class="status-text">السيرفر يعمل الآن</span>
+          <span class="server-label">السيرفر يعمل</span>
         </div>
 
-        <h1>
-          <span>NEW LIFE</span>
-          <span class="small">RP</span>
-        </h1>
-
-        <p class="hero-subtitle">
-          أفضل سيرفر رولبلاي عربي مع تجربة لعب فريدة و نظام متقدم
-        </p>
-
-        <p class="hero-server">
-          Server IP: play.newlife.rp
-        </p>
-
-        <div class="hero-buttons">
-          <a href="https://discord.gg/GPzfa4q22" target="_blank" class="btn btn-discord">
-            <span>💬</span>
-            <span>انضم الى ديسكورد</span>
-          </a>
-          <button class="btn btn-primary" onclick="smoothScroll('#features')">
-            <span>📖</span>
-            <span>تعرف على المميزات</span>
-          </button>
+        <div>
+          <p class="server-ip-label">Server IP</p>
+          <div class="server-ip">
+            <span>play.newlife-rp.com:7777</span>
+          </div>
         </div>
+
+        <div class="server-stats">
+          <div class="server-stat">
+            <div class="server-stat-value" id="playerCount">250</div>
+            <div class="server-stat-label">لاعب متصل</div>
+          </div>
+          <div class="server-stat">
+            <div class="server-stat-value">256</div>
+            <div class="server-stat-label">السعة القصوى</div>
+          </div>
+          <div class="server-stat">
+            <div class="server-stat-value">15 ms</div>
+            <div class="server-stat-label">الرجعة</div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="window.location.href='https://launcher.newlife-rp.com'">
+          تحميل واللعب
+        </button>
       </div>
-
-      <div class="hero-scroll">
-        <span>اسحب لأسفل</span>
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
-      </div>
-    </section>
-
-    <!-- FEATURES SECTION -->
-    <section id="features" class="section-bg">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-label">المميزات</span>
-          <h2 class="section-title">
-            لماذا <span class="gradient">NEW LIFE RP</span>؟
-          </h2>
-          <div class="gradient-line"></div>
-        </div>
-
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">🎮</div>
-            <h3>نظام لعب متقدم</h3>
-            <p>نظام لعب مخصص بالكا��ل مع أنظمة عمل وفصائل متنوعة</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon blue">👥</div>
-            <h3>مجتمع حي</h3>
-            <p>مجتمع لاعبين نشيط وودود بلا أي مضايقات</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">💻</div>
-            <h3>أداء عالي</h3>
-            <p>سيرفر قوي بأداء ممتاز وبدون تأخير</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon blue">🚀</div>
-            <h3>تحديثات مستمرة</h3>
-            <p>نحن نضيف مميزات جديدة كل أسبوع</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">🎯</div>
-            <h3>مكافآت يومية</h3>
-            <p>احصل على مكافآت يومية بمجرد دخول السيرفر</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon blue">🛡️</div>
-            <h3>أمان عالي</h3>
-            <p>حسابك آمن تماماً مع نظام حماية متقدم</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FACTIONS SECTION -->
-    <section id="factions">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-label">الفصائل المتاحة</span>
-          <h2 class="section-title">
-            اختر <span class="gradient">فصيلتك</span>
-          </h2>
-          <div class="gradient-line"></div>
-        </div>
-
-        <div class="factions-grid">
-          <div class="faction-card">
-            <div class="faction-icon">👮</div>
-            <div class="faction-header">
-              <h3>شرطة</h3>
-              <span class="eng">LSPD</span>
-            </div>
-            <p>حافظ على الأمن والنظام في المدينة كضابط شرطة محترف</p>
-          </div>
-
-          <div class="faction-card">
-            <div class="faction-icon">🚨</div>
-            <div class="faction-header">
-              <h3>إطفائية</h3>
-              <span class="eng">SAFD</span>
-            </div>
-            <p>أنقذ الأرواح والممتلكات كرجل إطفاء شجاع</p>
-          </div>
-
-          <div class="faction-card">
-            <div class="faction-icon">🏥</div>
-            <div class="faction-header">
-              <h3>إسعافات</h3>
-              <span class="eng">EMS</span>
-            </div>
-            <p>ساعد الناس وأنقذ الأرواح كطبيب وإسعافي</p>
-          </div>
-
-          <div class="faction-card">
-            <div class="faction-icon">💼</div>
-            <div class="faction-header">
-              <h3>تاجر</h3>
-              <span class="eng">MERCHANT</span>
-            </div>
-            <p>اكسب الأموال والثروة كتاجر ناجح</p>
-          </div>
-
-          <div class="faction-card">
-            <div class="faction-icon">⚙️</div>
-            <div class="faction-header">
-              <h3>ميكانيكي</h3>
-              <span class="eng">MECHANIC</span>
-            </div>
-            <p>اصلح السيارات واستمتع بعالم الميكانيكا</p>
-          </div>
-
-          <div class="faction-card">
-            <div class="faction-icon">💀</div>
-            <div class="faction-header">
-              <h3>عصابة</h3>
-              <span class="eng">GANG</span>
-            </div>
-            <p>كن جزء من عالم الجريمة والأثارة</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STATS SECTION -->
-    <section id="stats" class="section-bg">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-label">بالأرقام</span>
-          <h2 class="section-title">
-            إحصائيات <span class="gradient">السيرفر</span>
-          </h2>
-          <div class="gradient-line"></div>
-        </div>
-
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-icon">👥</div>
-            <div class="stat-value">100+</div>
-            <div class="stat-label">لاعبين</div>
-            <div class="stat-sub">يلعبون معنا يومياً</div>
-          </div>
-
-          <div class="stat-card">
-            <div class="stat-icon">⏰</div>
-            <div class="stat-value">24/7</div>
-            <div class="stat-label">أون لاين</div>
-            <div class="stat-sub">بدون انقطاع</div>
-          </div>
-
-          <div class="stat-card">
-            <div class="stat-icon">⚡</div>
-            <div class="stat-value">30+</div>
-            <div class="stat-label">نظام</div>
-            <div class="stat-sub">نظام مخصص</div>
-          </div>
-
-          <div class="stat-card">
-            <div class="stat-icon">⭐</div>
-            <div class="stat-value">100%</div>
-            <div class="stat-label">رولبلاي</div>
-            <div class="stat-sub">تجربة حقيقية</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERY SECTION -->
-    <section id="gallery">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-label">لحظات من السيرفر</span>
-          <h2 class="section-title">
-            معرض <span class="gradient">الصور</span>
-          </h2>
-          <div class="gradient-line"></div>
-        </div>
-
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <div class="gallery-item-bg" style="background-image: url('Screenshot 2026-06-02 200559.png');"></div>
-            <div class="gallery-overlay">
-              <span class="gallery-label">Downtown</span>
-            </div>
-            <div class="gallery-border"></div>
-          </div>
-
-          <div class="gallery-item">
-            <div class="gallery-item-bg" style="background-image: url('Screenshot 2026-06-02 200629.png');"></div>
-            <div class="gallery-overlay">
-              <span class="gallery-label">Night Race</span>
-            </div>
-            <div class="gallery-border"></div>
-          </div>
-
-          <div class="gallery-item">
-            <div class="gallery-item-bg" style="background-image: url('Screenshot 2026-06-02 200703.png');"></div>
-            <div class="gallery-overlay">
-              <span class="gallery-label">Police Chase</span>
-            </div>
-            <div class="gallery-border"></div>
-          </div>
-
-          <div class="gallery-item">
-            <div class="gallery-item-bg" style="background-image: url('Screenshot 2026-06-02 200733.png');"></div>
-            <div class="gallery-overlay">
-              <span class="gallery-label">City Life</span>
-            </div>
-            <div class="gallery-border"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVER STATUS SECTION -->
-    <section class="section-bg" id="server">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-label">معلومات الاتصال</span>
-          <h2 class="section-title">
-            حالة <span class="gradient">السيرفر</span>
-          </h2>
-          <div class="gradient-line"></div>
-        </div>
-
-        <div class="server-card">
-          <div class="server-status-badge">
-            <span class="status-dot"></span>
-            <span class="server-label">السيرفر يعمل</span>
-          </div>
-
-          <div>
-            <p class="server-ip-label">Server IP</p>
-            <div class="server-ip">
-              <span>play.newlife.rp</span>
-              <button onclick="copyToClipboard('play.newlife.rp')" style="background: none; border: none; color: var(--cyan); cursor: pointer; font-size: 1.25rem;">📋</button>
-            </div>
-          </div>
-
-          <div class="server-stats">
-            <div class="server-stat">
-              <div class="server-stat-value">327</div>
-              <div class="server-stat-label">لاعبين أون لاين</div>
-            </div>
-
-            <div class="server-stat">
-              <div class="server-stat-value">500</div>
-              <div class="server-stat-label">سعة السيرفر</div>
-            </div>
-
-            <div class="server-stat">
-              <div class="server-stat-value">2ms</div>
-              <div class="server-stat-label">Ping</div>
-            </div>
-          </div>
-
-          <a href="https://discord.gg/GPzfa4q22" target="_blank" class="btn btn-discord">
-            <span>💬</span>
-            <span>انضم الى ديسكورد</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- RULES PAGE -->
-  <div id="rulesPage" class="hidden">
-    <section id="rules-page">
-      <div class="rules-content">
-        <div class="rules-header">
-          <div class="rules-header-icon-title">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
-            </svg>
-            <h1>قوانين السيرفر</h1>
-          </div>
-          <p>اقرأ القوانين بعناية قبل اللعب</p>
-        </div>
-
-        <div class="rules-list">
-          <div class="rule-section">
-            <h2>
-              <div class="rule-bar"></div>
-              قوانين السلوك العام
-            </h2>
-            <ul>
-              <li>
-                <span class="rule-bullet">•</span>
-                <span>احترم جميع اللاعبين والموظفين في السيرفر</span>
-              </li>
-              <li>
-                <span class="rule-bullet">•</span>
-                <span>لا تستخدم لغة مسيئة أو فاحشة</span>
-              </li>
-              <li>
-                <span class="rule-bullet">•</span>
-                <span>لا تقم بالبريد المزعج أو الإزعاج</span>
-              </li>
-              <li>
-                <span class="rule-bullet">•</span>
-                <span>اتبع تعليمات الموظفين والمسؤولين</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="rule-section">
-            <h2>
-              <div class="rule-bar"></div>
-              قوانين اللعب
-            </h2>
-            <ul>
-              <li>
-                <span class="rule-bullet">•</span>
-                <span>ممنوع التصرف بأسلوب أو بسلوك يضر تجربة اللعب</span>
-              </li>
-              <li>
-                <span class="rule-bullet">•</span>
-                <span>ممنوع استخدام الاختراقات أو الروبوتات</span>
-              </li>
-              <li>
-                <span class="rule-bullet">•</span>
-                <span>لا تقم بسرقة أموال اللاعبين الآخرين</span>
-              </li>
-              <li>
-                <span class="rule-bullet">•</span>
-                <span>اتبع دور لاعبك في الفصيلة</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="rule-section">
-            <h2>
-              <div class="rule-bar"></div>
-              قوانين الديسكورد
-            </h2>
-            <ul>
-              <li>
-                <span class="rule-bullet">•</span>
-                <span>احترم أعضاء السيرفر والموظفين</span>
-              </li>
-              <li>
-                <span class="rule-bullet">•</span>
-                <span>لا ترسل روابط ضارة أو محتوى مسيء</span>
-              </li>
-              <li>
-                <span class="rule-bullet">•</span>
-                <span>استخدم القنوات المناسبة للأحاديث</span>
-              </li>
-              <li>
-                <span class="rule-bullet">•</span>
-                <span>لا تقم بالدعاية لسيرفرات أخرى</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="rules-warning">
-          <p>⚠️ تحذير مهم</p>
-          <p class="rules-warning-text">
-            انتهاك القوانين قد يؤدي إلى حظر حسابك بشكل دائم من السيرفر والديسكورد
-          </p>
-        </div>
-
-        <div class="rules-actions">
-          <button class="btn btn-back" onclick="showHomePage()">
-            <span>←</span>
-            <span>عودة للرئيسية</span>
-          </button>
-          <a href="https://discord.gg/GPzfa4q22" target="_blank" class="btn btn-discord">
-            <span>💬</span>
-            <span>انضم الى ديسكورد</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-content">
-      <div class="footer-section">
+      <div class="footer-column">
         <h3>عن السيرفر</h3>
-        <p style="color: #9ca3af; font-size: 0.875rem; line-height: 1.6;">
-          NEW LIFE RP أفضل سيرفر رولبلاي عربي يقدم تجربة لعب فريدة مع مجتمع حي وموظفين محترفين
-        </p>
-      </div>
-
-      <div class="footer-section">
-        <h3>روابط سريعة</h3>
         <ul>
-          <li><a href="#features" onclick="showHomePage(); smoothScroll('#features')">المميزات</a></li>
-          <li><a href="#factions" onclick="showHomePage(); smoothScroll('#factions')">الفصائل</a></li>
-          <li><a href="#gallery" onclick="showHomePage(); smoothScroll('#gallery')">الصور</a></li>
-          <li><a href="#" onclick="showRulesPage(); return false;">القوانين</a></li>
+          <li><a href="#features">المميزات</a></li>
+          <li><a href="#factions">الفصائل</a></li>
+          <li><a href="rules.html">القوانين</a></li>
         </ul>
       </div>
 
-      <div class="footer-section">
+      <div class="footer-column">
         <h3>تواصل معنا</h3>
         <ul>
-          <li><a href="https://discord.gg/GPzfa4q22" target="_blank">Discord</a></li>
-          <li><a href="mailto:support@newlife.rp">البريد الإلكتروني</a></li>
+          <li><a href="https://discord.gg/newlife" target="_blank">ديسكورد</a></li>
+          <li><a href="mailto:support@newlife-rp.com">البريد الإلكتروني</a></li>
+          <li><a href="https://instagram.com/newlife_rp" target="_blank">إنستقرام</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>موارد</h3>
+        <ul>
+          <li><a href="#">دليل المبتدئين</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">حالة الخادم</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2026 NEW LIFE RP. جميع الحقوق محفوظة.</p>
+      <p>&copy; 2026 NEW LIFE RP. جميع الحقوق محفوظة. • <a href="#" style="color: inherit; text-decoration: underline;">سياسة الخصوصية</a></p>
     </div>
   </footer>
 
   <script>
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 10) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
       }
     });
 
-    // Menu toggle
+    // Mobile menu toggle
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
-
-    function toggleMenu() {
+    
+    menuToggle.addEventListener('click', function() {
       navLinks.classList.toggle('active');
-    }
+    });
 
-    function closeMenu() {
-      navLinks.classList.remove('active');
-    }
-
-    // Page navigation
-    function showHomePage() {
-      document.getElementById('homePage').classList.remove('hidden');
-      document.getElementById('rulesPage').classList.add('hidden');
-      window.scrollTo(0, 0);
-    }
-
-    function showRulesPage() {
-      document.getElementById('homePage').classList.add('hidden');
-      document.getElementById('rulesPage').classList.remove('hidden');
-      window.scrollTo(0, 0);
-    }
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function() {
+        navLinks.classList.remove('active');
+      });
+    });
 
     // Smooth scroll
-    function smoothScroll(target) {
-      const element = document.querySelector(target);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-
-    // Copy to clipboard
-    function copyToClipboard(text) {
-      navigator.clipboard.writeText(text);
-      alert('تم نسخ الرابط!');
-    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
   </script>
 </body>
 </html>
