@@ -1,16 +1,1710 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MTA SA Server Website</title>
-    <meta property="og:image" content="https://bolt.new/static/og_default.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://bolt.new/static/og_default.png" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEW LIFE RP - أفضل سيرفر رولبلاي عربي</title>
+  <meta property="og:image" content="https://bolt.new/static/og_default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ─────────────────────────────────────────────────────────────────────────
+       ROOT & RESET
+    ───────────────────────────────────────────────────────────────────────── */
+    :root {
+      --bg: #020817;
+      --bg-light: #050816;
+      --primary: #76e4ff;
+      --primary-dark: #5b8cff;
+      --card: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.08);
+      --text2: #aeb7d0;
+      --cyan: #22d3ee;
+      --blue: #3b82f6;
+      --discord: #5865F2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       ANIMATIONS
+    ───────────────────────────────────────────────────────────────────────── */
+    @keyframes countUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        opacity: 0.5;
+        filter: brightness(1);
+      }
+      50% {
+        opacity: 1;
+        filter: brightness(1.3);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-reveal {
+      animation: fade-in-up 0.7s ease-out forwards;
+    }
+
+    .animate-bounce {
+      animation: bounce 2s infinite;
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       NAVBAR
+    ───────────────────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 2rem;
+      background: transparent;
+      transition: all 0.3s ease;
+      backdrop-filter: none;
+    }
+
+    nav.scrolled {
+      background: rgba(2, 8, 23, 0.9);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      transition: opacity 0.3s;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .navbar-brand:hover {
+      opacity: 0.8;
+    }
+
+    .navbar-brand img {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.5rem;
+    }
+
+    .navbar-brand span {
+      font-weight: 700;
+      font-size: 1.125rem;
+      letter-spacing: 0.05em;
+    }
+
+    .navbar-brand .rp {
+      color: var(--cyan);
+      text-shadow: 0 0 10px var(--cyan);
+    }
+
+    .nav-links {
+      display: none;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .nav-links.active {
+      display: flex;
+      position: absolute;
+      top: 4rem;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background: rgba(2, 8, 23, 0.95);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+        position: static;
+        flex-direction: row;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.2s;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .nav-btn-group {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .nav-discord {
+      display: none;
+      gap: 0.5rem;
+      align-items: center;
+      background: var(--discord);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .nav-discord:hover {
+      background: #4752c4;
+    }
+
+    @media (min-width: 768px) {
+      .nav-discord {
+        display: flex;
+      }
+    }
+
+    .menu-toggle {
+      display: block;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.375rem;
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .menu-toggle {
+        display: none;
+      }
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       HERO SECTION
+    ───────────────────────────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 1rem 2rem;
+      background: linear-gradient(135deg, rgba(2, 8, 23, 1) 0%, rgba(5, 20, 50, 0.8) 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 20% 50%, rgba(34, 211, 238, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      animation: countUp 1s ease-out forwards;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 9999px;
+      padding: 0.5rem 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.875rem;
+      animation: countUp 0.8s ease-out forwards;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: glow 2s infinite;
+    }
+
+    .hero-badge .online-text {
+      color: #4ade80;
+      font-weight: 600;
+    }
+
+    .hero-badge .status-text {
+      color: #9ca3af;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 1rem;
+      animation: countUp 1s ease-out 0.2s both;
+    }
+
+    .hero h1 .gradient {
+      background: linear-gradient(to right, var(--cyan), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero h1 .small {
+      font-size: 0.55em;
+      color: #fff;
+    }
+
+    .hero-subtitle {
+      color: #d1d5db;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      max-width: 28rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      animation: countUp 1s ease-out 0.4s both;
+    }
+
+    .hero-server {
+      color: #6b7280;
+      font-size: 0.875rem;
+      margin-bottom: 2.5rem;
+      font-family: 'Courier New', monospace;
+      animation: countUp 1s ease-out 0.5s both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      animation: countUp 1s ease-out 0.6s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      border: none;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 1rem;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, var(--cyan), var(--blue));
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 40px rgba(34, 211, 238, 0.3);
+    }
+
+    .btn-discord {
+      background: var(--discord);
+      color: #fff;
+    }
+
+    .btn-discord:hover {
+      background: #4752c4;
+      transform: scale(1.05);
+      box-shadow: 0 20px 40px rgba(88, 101, 242, 0.3);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      opacity: 0.4;
+    }
+
+    .hero-scroll span {
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .hero-scroll svg {
+      width: 1rem;
+      height: 1rem;
+      color: #9ca3af;
+      animation: bounce 2s infinite;
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       SECTION STYLES
+    ───────────────────────────────────────────────────────────────────────── */
+    section {
+      padding: 6rem 1rem;
+    }
+
+    .section-bg {
+      background: rgba(5, 8, 22, 0.5);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .section-container {
+      max-width: 80rem;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-label {
+      color: var(--cyan);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    .section-title .gradient {
+      background: linear-gradient(to right, var(--cyan), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .gradient-line {
+      width: 8rem;
+      height: 0.25rem;
+      background: linear-gradient(to right, var(--cyan), var(--blue));
+      margin: 1rem auto;
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       FEATURES SECTION
+    ───────────────────────────────────────────────────────────────────────── */
+    #features {
+      position: relative;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: all 0.3s;
+      cursor: pointer;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(34, 211, 238, 0.1), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .feature-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(34, 211, 238, 0.3);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(34, 211, 238, 0.1);
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .feature-icon {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      background: rgba(34, 211, 238, 0.1);
+    }
+
+    .feature-icon.blue {
+      background: rgba(59, 130, 246, 0.1);
+    }
+
+    .feature-card:hover .feature-icon {
+      background: rgba(34, 211, 238, 0.2);
+    }
+
+    .feature-card h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      color: #9ca3af;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       FACTIONS SECTION
+    ───────────────────────────────────────────────────────────────────────── */
+    .factions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      gap: 1.25rem;
+    }
+
+    .faction-card {
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(59, 130, 246, 0.1));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .faction-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(34, 211, 238, 0.2), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .faction-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(34, 211, 238, 0.15);
+    }
+
+    .faction-card:hover::before {
+      opacity: 1;
+    }
+
+    .faction-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1.75rem;
+      background: rgba(34, 211, 238, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .faction-card:hover .faction-icon {
+      transform: scale(1.1);
+    }
+
+    .faction-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .faction-header h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+
+    .faction-header .eng {
+      font-size: 0.75rem;
+      color: #6b7280;
+      font-family: monospace;
+    }
+
+    .faction-card p {
+      color: #9ca3af;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       STATS SECTION
+    ───────────────────────────────────────────────────────────────────────── */
+    #stats {
+      position: relative;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .stat-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-8px);
+    }
+
+    .stat-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.5rem;
+      background: rgba(34, 211, 238, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.25rem;
+    }
+
+    .stat-value {
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 900;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      color: var(--cyan);
+      font-weight: 700;
+      font-size: 0.875rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-sub {
+      color: #6b7280;
+      font-size: 0.75rem;
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       GALLERY SECTION
+    ───────────────────────────────────────────────────────────────────────── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      height: 14rem;
+      cursor: pointer;
+    }
+
+    .gallery-item-bg {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s;
+    }
+
+    .gallery-item:hover .gallery-item-bg {
+      transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1), transparent);
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-label {
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .gallery-border {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255, 255, 255, 0);
+      border-radius: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    .gallery-item:hover .gallery-border {
+      border-color: rgba(34, 211, 238, 0.3);
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       SERVER STATUS SECTION
+    ───────────────────────────────────────────────────────────────────────── */
+    .server-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .server-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(34, 211, 238, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .server-status-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .server-label {
+      color: #4ade80;
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+
+    .server-ip-label {
+      color: #9ca3af;
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .server-ip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.75rem;
+      padding: 0.75rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .server-ip span {
+      font-family: monospace;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: 0.05em;
+    }
+
+    .server-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 28rem;
+      margin: 0 auto 2.5rem;
+    }
+
+    .server-stat {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 0.75rem;
+      padding: 1rem;
+    }
+
+    .server-stat-value {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .server-stat-label {
+      color: #9ca3af;
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       RULES PAGE
+    ────────────────────────────────────────────��───────────────────────────── */
+    #rules-page {
+      padding-top: 6rem;
+      min-height: 100vh;
+      background: var(--bg);
+    }
+
+    .rules-content {
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .rules-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .rules-header-icon-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .rules-header-icon-title svg {
+      width: 2.25rem;
+      height: 2.25rem;
+      color: var(--cyan);
+    }
+
+    .rules-header h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+    }
+
+    .rules-header p {
+      color: #9ca3af;
+      font-size: 1.125rem;
+      margin-top: 1rem;
+    }
+
+    .rules-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .rule-section {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+      padding: 1.5rem 2rem;
+    }
+
+    .rule-section h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .rule-bar {
+      width: 0.25rem;
+      height: 1.5rem;
+      background: linear-gradient(to bottom, var(--cyan), var(--blue));
+      border-radius: 0.125rem;
+      flex-shrink: 0;
+    }
+
+    .rule-section ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .rule-section li {
+      display: flex;
+      gap: 0.75rem;
+      color: #d1d5db;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .rule-bullet {
+      color: var(--cyan);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    .rules-warning {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(239, 68, 68, 0.1));
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .rules-warning p {
+      color: #fbbf24;
+      font-weight: 600;
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .rules-warning-text {
+      color: #d1d5db;
+      font-size: 0.875rem;
+    }
+
+    .rules-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    @media (min-width: 640px) {
+      .rules-actions {
+        flex-direction: row;
+      }
+    }
+
+    .btn-back {
+      background: #4b5563;
+      color: #fff;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 1rem;
+      font-weight: 700;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1rem;
+    }
+
+    .btn-back:hover {
+      background: #3f4652;
+      transform: scale(1.05);
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 2.5rem 1rem;
+    }
+
+    .footer-content {
+      max-width: 80rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (min-width: 640px) {
+      .footer-content {
+        flex-direction: row;
+      }
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .footer-brand .rp {
+      color: var(--cyan);
+    }
+
+    .footer-text {
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+
+    .footer-status {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #4ade80;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .footer-status-dot {
+      display: inline-block;
+      width: 0.375rem;
+      height: 0.375rem;
+      border-radius: 50%;
+      background: #4ade80;
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       UTILITY & RESPONSIVE
+    ──────────────────────────────────────────────────��────────────────────── */
+    @media (max-width: 640px) {
+      .hero h1 {
+        line-height: 1.2;
+      }
+
+      .features-grid,
+      .factions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .rules-actions {
+        flex-direction: column;
+      }
+
+      section {
+        padding: 4rem 1rem;
+      }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .show {
+      display: block !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="#" onclick="showHomePage(); return false;" class="navbar-brand">
+      <img src="/Screenshot_2026-06-02_111830.png" alt="NEW LIFE RP" onerror="this.style.background='linear-gradient(135deg, #22d3ee, #3b82f6); width: 2rem; height: 2rem;'">
+      <span>NEW LIFE <span class="rp">RP</span></span>
+    </a>
+    
+    <div class="nav-links" id="navLinks">
+      <a href="#features" onclick="closeMenu()">المميزات</a>
+      <a href="#factions" onclick="closeMenu()">الفصائل</a>
+      <a href="#stats" onclick="closeMenu()">إحصائيات</a>
+      <a href="#gallery" onclick="closeMenu()">صور</a>
+      <a href="#server" onclick="closeMenu()">السيرفر</a>
+      <a href="#" onclick="showRulesPage(); return false;">القوانين</a>
+    </div>
+
+    <div class="nav-btn-group">
+      <a href="https://discord.gg/GPzfa4q22" target="_blank" rel="noopener noreferrer" class="nav-discord">
+        <span>💬</span> Discord
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- HOME PAGE CONTENT -->
+  <div id="homePage">
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="status-dot"></span>
+          <span class="online-text" id="playerCount">327 لاعب الآن</span>
+          <span class="status-text">•</span>
+          <span class="status-text">السيرفر يعمل 24/7</span>
+        </div>
+
+        <h1>
+          <span>NEW </span>
+          <span class="gradient">LIFE</span>
+          <br>
+          <span class="small">ROLEPLAY</span>
+        </h1>
+
+        <p class="hero-subtitle">أفضل تجربة Roleplay عربية داخل MTA San Andreas</p>
+        <p class="hero-server">89.42.88.252:22091</p>
+
+        <div class="hero-buttons">
+          <a href="mtasa://89.42.88.252:22091" class="btn btn-primary">
+            <span>▶</span> العب الآن
+          </a>
+          <a href="https://discord.gg/GPzfa4q22" target="_blank" rel="noopener noreferrer" class="btn btn-discord">
+            <span>💬</span> انضم للديسكورد
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-scroll">
+        <span>اكتشف أكثر</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="section-bg" id="features">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-label">ما يميزنا</span>
+          <h2 class="section-title">
+            مميزات <span class="gradient">السيرفر</span>
+          </h2>
+          <div class="gradient-line"></div>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>نظام الهاتف</h3>
+            <p>هاتف ذكي متكامل مع مكالمات، رسائل، ومنصات تواصل داخل اللعبة.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🚗</div>
+            <h3>سيارات حصرية</h3>
+            <p>أكثر من 200 سيارة مخصصة بتفاصيل دقيقة وأنظمة قيادة واقعية.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🏠</div>
+            <h3>نظام المنازل</h3>
+            <p>امتلك منزلك الخاص وخصصه بالأثاث والتفاصيل التي تناسبك.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">💼</div>
+            <h3>وظائف متنوعة</h3>
+            <p>أكثر من 15 وظيفة قانونية وغير قانونية تنتظرك لتبدأ حياتك الجديدة.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon blue">🌍</div>
+            <h3>اقتصاد حقيقي</h3>
+            <p>نظام اقتصادي متكامل مع بنوك، عقارات، وأسواق تجارية.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon blue">⭐</div>
+            <h3>رولبلاي حقيقي</h3>
+            <p>قصص حقيقية ومواقف تجعلك تعيش تجربة لا مثيل لها.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACTIONS SECTION -->
+    <section id="factions">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-label">اختر دورك</span>
+          <h2 class="section-title">
+            <span class="gradient">الفصائل</span> والمجموعات
+          </h2>
+          <div class="gradient-line"></div>
+        </div>
+
+        <div class="factions-grid">
+          <div class="faction-card">
+            <div class="faction-icon">🚓</div>
+            <div class="faction-header">
+              <h3>الشرطة</h3>
+              <span class="eng">LSPD</span>
+            </div>
+            <p>حافظ على النظام وطارد المجرمين في شوارع المدينة.</p>
+          </div>
+
+          <div class="faction-card">
+            <div class="faction-icon">🚑</div>
+            <div class="faction-header">
+              <h3>الإسعاف</h3>
+              <span class="eng">EMS</span>
+            </div>
+            <p>أنقذ الأرواح وقدم الرعاية الطبية في أصعب المواقف.</p>
+          </div>
+
+          <div class="faction-card">
+            <div class="faction-icon">🔧</div>
+            <div class="faction-header">
+              <h3>الميكانيك</h3>
+              <span class="eng">Mechanic</span>
+            </div>
+            <p>أصلح السيارات وقدم خدمات الإنقاذ والسحب في المدينة.</p>
+          </div>
+
+          <div class="faction-card">
+            <div class="faction-icon">💀</div>
+            <div class="faction-header">
+              <h3>المافيا</h3>
+              <span class="eng">Mafia</span>
+            </div>
+            <p>تحكم في الشوارع وابنِ إمبراطوريتك الجريمة السرية.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="section-bg" id="stats">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-label">بالأرقام</span>
+          <h2 class="section-title">
+            إحصائيات <span class="gradient">السيرفر</span>
+          </h2>
+          <div class="gradient-line"></div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">👥</div>
+            <div class="stat-value"><span class="counter" data-target="100">0</span>+</div>
+            <div class="stat-label">لاعبين</div>
+            <div class="stat-sub">يلعبون معنا يومياً</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">⏰</div>
+            <div class="stat-value">24<span style="font-size: 0.7em;">/</span>7</div>
+            <div class="stat-label">أون لاين</div>
+            <div class="stat-sub">بدون انقطاع</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">⚙️</div>
+            <div class="stat-value"><span class="counter" data-target="30">0</span>+</div>
+            <div class="stat-label">نظام</div>
+            <div class="stat-sub">نظام مخصص</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">⭐</div>
+            <div class="stat-value">100%</div>
+            <div class="stat-label">رولبلاي</div>
+            <div class="stat-sub">تجربة حقيقية</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-label">لحظات من السيرفر</span>
+          <h2 class="section-title">
+            معرض <span class="gradient">الصور</span>
+          </h2>
+          <div class="gradient-line"></div>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <div class="gallery-item-bg" style="background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);"></div>
+            <div class="gallery-overlay">
+              <span class="gallery-label">Downtown</span>
+            </div>
+            <div class="gallery-border"></div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-item-bg" style="background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);"></div>
+            <div class="gallery-overlay">
+              <span class="gallery-label">Night Race</span>
+            </div>
+            <div class="gallery-border"></div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-item-bg" style="background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);"></div>
+            <div class="gallery-overlay">
+              <span class="gallery-label">Police Chase</span>
+            </div>
+            <div class="gallery-border"></div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-item-bg" style="background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);"></div>
+            <div class="gallery-overlay">
+              <span class="gallery-label">City Life</span>
+            </div>
+            <div class="gallery-border"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVER STATUS SECTION -->
+    <section class="section-bg" id="server">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-label">معلومات الاتصال</span>
+          <h2 class="section-title">
+            حالة <span class="gradient">السيرفر</span>
+          </h2>
+          <div class="gradient-line"></div>
+        </div>
+
+        <div class="server-card">
+          <div class="server-status-badge">
+            <span class="status-dot"></span>
+            <span class="server-label">السيرفر يعمل</span>
+          </div>
+
+          <div>
+            <p class="server-ip-label">عنوان السيرفر</p>
+            <div class="server-ip">
+              <span>89.42.88.252:22091</span>
+            </div>
+          </div>
+
+          <div class="server-stats">
+            <div class="server-stat">
+              <div class="server-stat-value" id="serverPlayers">327</div>
+              <div class="server-stat-label">لاعبين</div>
+            </div>
+            <div class="server-stat">
+              <div class="server-stat-value">500</div>
+              <div class="server-stat-label">الحد الأقصى</div>
+            </div>
+            <div class="server-stat">
+              <div class="server-stat-value">99.9%</div>
+              <div class="server-stat-label">Uptime</div>
+            </div>
+          </div>
+
+          <div class="hero-buttons" style="margin: 0;">
+            <a href="mtasa://89.42.88.252:22091" class="btn btn-primary">
+              <span>▶</span> اتصل مباشرة
+            </a>
+            <a href="https://discord.gg/GPzfa4q22" target="_blank" rel="noopener noreferrer" class="btn btn-discord">
+              <span>💬</span> Discord
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span>NEW LIFE <span class="rp">RP</span></span>
+        </div>
+        <p class="footer-text">© <span id="year">2026</span> NEW LIFE RP — جميع الحقوق محفوظة</p>
+        <div class="footer-status">
+          <span class="footer-status-dot"></span>
+          <span>السيرفر يعمل بكفاءة</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- RULES PAGE -->
+  <div id="rulesPage" class="hidden">
+    <nav id="navbar2">
+      <a href="#" onclick="showHomePage(); return false;" class="navbar-brand">
+        <img src="/Screenshot_2026-06-02_111830.png" alt="NEW LIFE RP" onerror="this.style.background='linear-gradient(135deg, #22d3ee, #3b82f6); width: 2rem; height: 2rem;'">
+        <span>NEW LIFE <span class="rp">RP</span></span>
+      </a>
+      
+      <div class="nav-links" id="navLinks2">
+        <a href="#" onclick="showHomePage(); return false;">الرئيسية</a>
+        <a href="#rules-page">القوانين</a>
+      </div>
+
+      <div class="nav-btn-group">
+        <a href="https://discord.gg/GPzfa4q22" target="_blank" rel="noopener noreferrer" class="nav-discord">
+          <span>💬</span> Discord
+        </a>
+        <button class="menu-toggle" id="menuToggle2" aria-label="Toggle menu">☰</button>
+      </div>
+    </nav>
+
+    <section id="rules-page">
+      <div class="rules-content">
+        <div class="rules-header">
+          <div class="rules-header-icon-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <h1>قوانين <span class="gradient">السيرفر</span></h1>
+          </div>
+          <p>اقرأ القوانين بعناية — الالتزام بها إجباري لجميع اللاعبين</p>
+        </div>
+
+        <div class="rules-list">
+          <div class="rule-section">
+            <h2>
+              <span class="rule-bar"></span>
+              قوانين عامة
+            </h2>
+            <ul>
+              <li><span class="rule-bullet">•</span> <span>الاحترام المتبادل بين جميع اللاعبين إجباري — عدم الإساءة أو السب</span></li>
+              <li><span class="rule-bullet">•</span> <span>ممنوع التحرش أو إحراج الآخرين بأي طريقة كانت</span></li>
+              <li><span class="rule-bullet">•</span> <span>ممنوع نهائياً استخدام اللغات العنصرية أو التمييزية</span></li>
+              <li><span class="rule-bullet">•</span> <span>اتبع التعليمات المُدراء والموظفين دون جدال</span></li>
+              <li><span class="rule-bullet">•</span> <span>ممنوع البيع/الشراء الحقيقي داخل السيرفر</span></li>
+            </ul>
+          </div>
+
+          <div class="rule-section">
+            <h2>
+              <span class="rule-bar"></span>
+              قوانين اللعب
+            </h2>
+            <ul>
+              <li><span class="rule-bullet">•</span> <span>ممنوع ديس آرم (DM) — لا تبدأ قتال بدون سبب روليبلاي</span></li>
+              <li><span class="rule-bullet">•</span> <span>ممنوع طرد اللاعبين من السيارات بدون سبب</span></li>
+              <li><span class="rule-bullet">•</span> <span>ممنوع استخدام جلافتين أو ايزي أنتي تشيت (AC)</span></li>
+              <li><span class="rule-bullet">•</span> <span>ممنوع التعديل على ملفات اللعبة غير المصرح به</span></li>
+              <li><span class="rule-bullet">•</span> <span>ممنوع الإفساد في الروليبلاي (PG) — حافظ على الشخصية</span></li>
+            </ul>
+          </div>
+
+          <div class="rule-section">
+            <h2>
+              <span class="rule-bar"></span>
+              قوانين الاقت��اد
+            </h2>
+            <ul>
+              <li><span class="rule-bullet">•</span> <span>ممنوع غسيل الأموال أو الاحتيال المالي</span></li>
+              <li><span class="rule-bullet">•</span> <span>جميع التجارات يجب أن تكون شرعية ومسجلة</span></li>
+              <li><span class="rule-bullet">•</span> <span>ممنوع السرقة من البنك أو المحلات بدون فريق منسق</span></li>
+              <li><span class="rule-bullet">•</span> <span>يجب الالتزام بأسعار السيرفر — لا تقدم عروض متطرفة</span></li>
+              <li><span class="rule-bullet">•</span> <span>الفائدة على القروض يجب أن تكون معقولة</span></li>
+            </ul>
+          </div>
+
+          <div class="rule-section">
+            <h2>
+              <span class="rule-bar"></span>
+              قوانين الفصائل
+            </h2>
+            <ul>
+              <li><span class="rule-bullet">•</span> <span>ممنوع الانضمام لفصيلتين في نفس الوقت</span></li>
+              <li><span class="rule-bullet">•</span> <span>قادة الفصائل مسؤولون عن سلوك أعضائهم</span></li>
+              <li><span class="rule-bullet">•</span> <span>ممنوع حل الفصيلة بدون موافقة الإدارة</span></li>
+              <li><span class="rule-bullet">•</span> <span>الحروب بين الفصائل يجب أن تُبلغ عنها مسبقاً</span></li>
+              <li><span class="rule-bullet">•</span> <span>ممنوع تعطيل خادم الفصيلة أو قاعدتهم</span></li>
+            </ul>
+          </div>
+
+          <div class="rule-section">
+            <h2>
+              <span class="rule-bar"></span>
+              قوانين المدن والعقارات
+            </h2>
+            <ul>
+              <li><span class="rule-bullet">•</span> <span>ممنوع دخول منزل الآخرين بدون إذن</span></li>
+              <li><span class="rule-bullet">•</span> <span>أصحاب البيوت مسؤولون عن حماية ممتلكاتهم</span></li>
+              <li><span class="rule-bullet">•</span> <span>ممنوع وضع أشياء غير قانونية في بيتك العام</span></li>
+              <li><span class="rule-bullet">•</span> <span>جميع المدن لها قوانينها الخاصة — اتبعها</span></li>
+              <li><span class="rule-bullet">•</span> <span>ممنوع الإضرار بالممتلكات العامة</span></li>
+            </ul>
+          </div>
+
+          <div class="rule-section">
+            <h2>
+              <span class="rule-bar"></span>
+              العقوبات
+            </h2>
+            <ul>
+              <li><span class="rule-bullet">•</span> <span>التحذير الأول: إنذار شفوي</span></li>
+              <li><span class="rule-bullet">•</span> <span>التحذير الثاني: حظر مؤقت 24 ساعة</span></li>
+              <li><span class="rule-bullet">•</span> <span>التحذير الثالث: حظر مؤقت 7 أيام</span></li>
+              <li><span class="rule-bullet">•</span> <span>التحذير الرابع: حظر دائم من السيرفر</span></li>
+              <li><span class="rule-bullet">•</span> <span>الانتهاكات الخطيرة قد تؤدي لحظر فوري</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="rules-warning">
+          <p>تنبيه مهم</p>
+          <p class="rules-warning-text">عدم الالتزام بهذه القوانين قد يؤدي لحظر حسابك من السيرفر. تأكد من فهمك التام لجميع القوانين قبل اللعب.</p>
+        </div>
+
+        <div class="rules-actions">
+          <button class="btn-back" onclick="showHomePage()">
+            <span>←</span> العودة للرئيسية
+          </button>
+          <a href="https://discord.gg/GPzfa4q22" target="_blank" rel="noopener noreferrer" class="btn btn-discord" style="margin: 0;">
+            <span>💬</span> انضم للديسكورد
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <p class="footer-text">© <span id="year2">2026</span> NEW LIFE RP — جميع الحقوق محفوظة</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // ─────────────────────────────────────────────────────────────────────────
+    // INITIALIZATION
+    // ─────────────────────────────────────────────────────────────────────────
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('year2').textContent = new Date().getFullYear();
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // NAVBAR SCROLL EFFECT
+    // ─────────────────────────────────────────────────────────────────────────
+    const navbar = document.getElementById('navbar');
+    const navbar2 = document.getElementById('navbar2');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) {
+        navbar.classList.add('scrolled');
+        if (navbar2) navbar2.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+        if (navbar2) navbar2.classList.remove('scrolled');
+      }
+    });
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // MOBILE MENU TOGGLE
+    // ─────────────────────────────────────────────────────────────────────────
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const menuToggle2 = document.getElementById('menuToggle2');
+    const navLinks2 = document.getElementById('navLinks2');
+
+    function closeMenu() {
+      navLinks.classList.remove('active');
+      if (navLinks2) navLinks2.classList.remove('active');
+    }
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    if (menuToggle2) {
+      menuToggle2.addEventListener('click', () => {
+        navLinks2.classList.toggle('active');
+      });
+    }
+
+    // Close menu when link is clicked
+    document.querySelectorAll('.nav-links a, #navLinks2 a').forEach(link => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
+    });
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // PLAYER COUNT ANIMATION
+    // ─────────────────────────────────────────────────────────────────────────
+    let playerCount = 327;
+
+    function updatePlayerCount() {
+      const delta = Math.floor(Math.random() * 5) - 2;
+      playerCount = Math.min(500, Math.max(300, playerCount + delta));
+      const playerCountEl = document.getElementById('playerCount');
+      const serverPlayersEl = document.getElementById('serverPlayers');
+      if (playerCountEl) playerCountEl.textContent = playerCount + ' لاعب الآن';
+      if (serverPlayersEl) serverPlayersEl.textContent = playerCount;
+    }
+
+    setInterval(updatePlayerCount, 3500);
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // COUNTER ANIMATION FOR STATS
+    // ─────────────────────────────────────────────────────────────────────────
+    function animateCounter(element) {
+      const target = parseInt(element.dataset.target);
+      let current = 0;
+      const duration = 2000;
+      const start = performance.now();
+
+      function update(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        current = Math.round(easeProgress * target);
+        element.textContent = current;
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        }
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    const observerOptions = { threshold: 0.5 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.target.classList.contains('counter')) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.counter').forEach(el => observer.observe(el));
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // REVEAL ANIMATION ON SCROLL
+    // ─────────────────────────────────────────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('animate-reveal');
+          }, index * 80);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.feature-card, .faction-card, .stat-card, .gallery-item, .rule-section, .server-card').forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // PAGE NAVIGATION
+    // ─────────────────────────────────────────────────────────────────────────
+    function showRulesPage() {
+      document.getElementById('homePage').classList.add('hidden');
+      document.getElementById('rulesPage').classList.remove('hidden');
+      window.scrollTo(0, 0);
+    }
+
+    function showHomePage() {
+      document.getElementById('homePage').classList.remove('hidden');
+      document.getElementById('rulesPage').classList.add('hidden');
+      window.scrollTo(0, 0);
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // SMOOTH ANCHOR NAVIGATION
+    // ─────────────────────────────────────────────────────────────────────────
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && !href.includes('rules-page') && document.querySelector(href)) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+  </script>
+</body>
 </html>
